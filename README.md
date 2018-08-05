@@ -80,7 +80,7 @@ $ git commit -am "manual deploy"$
 
 まず、手元でDockerイメージを構築し、ECRにプッシュします。
 ```
-$ $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+$ $(aws ecr get-login --no-include-email --region ap-northeast-1)
 
 $ IMAGE_REPOSITORY_NAME=<環境構築用スタックのImageRepositoryNameという出力の値>
 $ IMAGE_TAG=`git rev-parse HEAD`
@@ -254,7 +254,7 @@ CodePipelineを使用することでデプロイやテストが自動で実行�
 
 - CodePipelineの削除
 - CodeBuildの削除
-- IAM Roleの削除　CodePipeline用　CodeBuild用
+- IAM Roleの削除　CodePipeline用
 - CodePipelineのアーティファクト保存用S3バケット削除
   - ※ 他のパイプラインでも利用している場合があるので注意
 - ECRリポジトリ内のイメージをすべて削除
